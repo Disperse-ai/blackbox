@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
   const mockupRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -16,13 +16,13 @@ export default function HeroSection() {
           entry.target.classList.add("translate-y-0", "opacity-100");
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
-    
+
     if (mockupRef.current) {
       observer.observe(mockupRef.current);
     }
-    
+
     return () => {
       if (mockupRef.current) {
         observer.unobserve(mockupRef.current);
@@ -33,47 +33,56 @@ export default function HeroSection() {
   return (
     <section className="relative pt-24 md:pt-32 pb-16 md:pb-24 overflow-hidden">
       <ParticleBackground className="absolute inset-0 -z-10" />
-      
+
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-background/20 to-background"></div>
-      
+
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
           <Badge className="mb-4 bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 transition-colors border-blue-500/20">
             Alpha Release Coming Soon
           </Badge>
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400">
-            <AnimatedText 
-              text="All Your AI Models." 
-              className="block mb-2" 
+            <AnimatedText
+              text="All Your AI Models."
+              className="block mb-2"
               speed={60}
             />
-            <AnimatedText 
-              text="One Powerful Interface." 
-              className="block" 
-              speed={60} 
+            <AnimatedText
+              text="One Powerful Interface."
+              className="block"
+              speed={60}
               delay={1500}
             />
           </h1>
-          
+
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            BlackBox runs all your local AI models from a single interface. From image generation to synthetic voices, whatever model you have, we'll run it.
+            BlackBox runs all your local AI models from a single interface. From
+            image generation to synthetic voices, whatever model you have, we'll
+            run it.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/download">
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium px-8 py-6 h-auto">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium px-8 py-6 h-auto"
+              >
                 Get Early Access
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:text-purple-300 px-8 py-6 h-auto">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:text-purple-300 px-8 py-6 h-auto"
+            >
               Watch Demo
             </Button>
           </div>
         </div>
-        
-        <div 
+
+        <div
           ref={mockupRef}
           className="max-w-5xl mx-auto rounded-lg overflow-hidden shadow-[0_0_50px_rgba(79,70,229,0.15)] border border-slate-800 translate-y-10 opacity-0 transition-all duration-1000"
         >
@@ -138,7 +147,7 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
           <div className="text-center">
             <div className="bg-blue-500/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">

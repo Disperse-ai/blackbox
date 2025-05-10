@@ -30,7 +30,7 @@ export default function Navbar() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
         isScrolled
           ? "bg-background/80 backdrop-blur-md shadow-md py-2"
-          : "bg-transparent py-4"
+          : "bg-transparent py-4",
       )}
     >
       <nav className="container mx-auto px-4 flex justify-between items-center">
@@ -64,14 +64,12 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
-          <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium" >
-          <Link
-            href="download"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            Download Alpha
+          <ModeToggle />
+          <Link href="/download">
+            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium">
+              Download Alpha
+            </Button>
           </Link>
-        </Button>
         </div>
 
         {/* Mobile Navigation Toggle */}
@@ -81,11 +79,7 @@ export default function Navbar() {
             onClick={toggleMenu}
             className="p-2 text-primary focus:outline-none"
           >
-            {isOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </nav>
@@ -116,8 +110,9 @@ export default function Navbar() {
               Download
             </Link>
             <Link
-              href="download"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium"
+              href="/download"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium px-4 py-2 rounded-md"
+              onClick={() => setIsOpen(false)}
             >
               Download Alpha
             </Link>
